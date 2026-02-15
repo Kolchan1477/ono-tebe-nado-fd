@@ -1,23 +1,22 @@
 /* место для вашего кода */
 /* Подключение шрифтов Raleway */
 @font-face {
-  font-family: 'Raleway';
+  font-family: "Raleway";
   src:
-    url('../fonts/Raleway-Regular.woff2') format('woff2'),
-    url('../fonts/Raleway-Regular.woff') format('woff');
+    url("../fonts/Raleway-Regular.woff2") format("woff2"),
+    url("../fonts/Raleway-Regular.woff") format("woff");
   font-weight: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Raleway';
+  font-family: "Raleway";
   src:
-    url('../fonts/Raleway-Bold.woff2') format('woff2'),
-    url('../fonts/Raleway-Bold.woff') format('woff');
+    url("../fonts/Raleway-Bold.woff2") format("woff2"),
+    url("../fonts/Raleway-Bold.woff") format("woff");
   font-weight: bold;
   font-display: swap;
 }
-
 
 /* ===== HEADER НА CSS GRID ===== */
 .header {
@@ -25,7 +24,7 @@
   display: grid;
   /* 3 колонки: меню слева | лого по центру | адрес справа */
   grid-template-columns: 1fr auto 1fr;
-  
+
   /* 2. Выравнивание и размеры */
   align-items: start; /* Выравниваем элементы по верхнему краю */
   width: 1100px;
@@ -41,7 +40,6 @@
 .menu-item_main {
   width: 67px;
   height: 21px;
-  
 }
 
 /* 2. Для "посмотреть лоты" - 149×21 */
@@ -49,7 +47,6 @@
   width: 149px;
   height: 21px;
   text-decoration: underline;
-  
 }
 
 /* 3. Для "об аукционе" - 108×21 */
@@ -57,7 +54,6 @@
   width: 108px;
   height: 21px;
   text-decoration: underline;
-  
 }
 
 /* 4. Чтобы текст был точно по центру своих контейнеров */
@@ -101,24 +97,23 @@
   display: inline-block;
   width: 6px;
   height: 6px;
-  background: 
-    radial-gradient(
-      circle at center,
-      transparent 2px,  /* Белая серединка (2px радиус) */
-      #000 2.5px,       /* Чёрное кольцо (0.5px толщина) */
-      #000 3px,         /* Внешняя граница */
-      transparent 3.5px /* Прозрачный фон */
-    );
+  background: radial-gradient(
+    circle at center,
+    transparent 2px,
+    /* Белая серединка (2px радиус) */ #000 2.5px,
+    /* Чёрное кольцо (0.5px толщина) */ #000 3px,
+    /* Внешняя граница */ transparent 3.5px /* Прозрачный фон */
+  );
   border-radius: 50%;
   margin: 0 10px;
 }
 /* ===== ПОЗИЦИОНИРОВАНИЕ ВСЕГО БЛОКА МЕНЮ ===== */
 .header__nav {
   position: absolute; /* Вырываем из общего потока */
-  top: 133px;         
+  top: 133px;
   left: 50px;
   width: 396px; /* Минимальная ширина для всех элементов */
-  white-space: nowrap; /* Жёсткий запрет переноса текста */ 
+  white-space: nowrap; /* Жёсткий запрет переноса текста */
 }
 /* ===== КОЛОНКА 2: ЛОГОТИП ПО ЦЕНТРУ ===== */
 .header__logo {
@@ -131,8 +126,8 @@
 
 /* Стили для изображения логотипа */
 .header__logo img {
-  width: 148px;  
-  height: 105px; 
+  width: 148px;
+  height: 105px;
   display: block;
 }
 
@@ -142,8 +137,8 @@
   grid-column: 3;
   /* Абсолютное позиционирование для точного размещения */
   position: absolute;
-  top: 95px;      /* Точное значение из макета */
-  right: 50px;    /* Вместо margin-right */
+  top: 95px; /* Точное значение из макета */
+  right: 50px; /* Вместо margin-right */
 
   /* Точные размеры из макета */
   width: 240px;
@@ -178,22 +173,20 @@
   margin: 0; /* Убираем стандартные отступы */
 }
 
-
-
 /* ===== COVER ===== */
 .cover {
   position: relative;
   min-height: 757px;
   padding: 0; /* Убираем все padding-и, будем позиционировать всё абсолютно */
-  
+
   /* Фон */
-  background-image: url('../images/cover.jpg');
+  background-image: url("../images/cover.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
-  color: #FFF;
-  font-family: 'Raleway', sans-serif;
+
+  color: #fff;
+  font-family: "Raleway", sans-serif;
   box-sizing: border-box;
 }
 
@@ -226,14 +219,14 @@
 
 /* ===== СТРОКА "ОНО" (первая) ===== */
 .aligned-text_left {
-  position: absolute;      /* обязательно */
+  position: absolute; /* обязательно */
   left: 50px;
   top: 165px;
-  
-  display: flex;           /* чтобы управлять буквами */
+
+  display: flex; /* чтобы управлять буквами */
   justify-content: space-between;
-  width: 286px;            /* ширина из макета */
-  
+  width: 286px; /* ширина из макета */
+
   text-align: left;
   margin: 0;
   padding: 0;
@@ -242,16 +235,16 @@
 /* ===== СТРОКА "ТЕБЕ" (вторая) ===== */
 .aligned-text_center {
   /* ВАЖНО: позиционирование */
-  position: absolute;        /* Без этого элемент исчезает */
-  left: 54%;                 /* Центрирование по горизонтали */
+  position: absolute; /* Без этого элемент исчезает */
+  left: 54%; /* Центрирование по горизонтали */
   transform: translateX(-50%);
-  top: 300px;                /* Отступ от верха */
-  
+  top: 300px; /* Отступ от верха */
+
   /* Новые свойства для распределения букв */
   display: flex;
   justify-content: space-between;
   width: 339px;
-  
+
   /* Остальные стили */
   text-align: center;
   margin: 0;
@@ -262,16 +255,16 @@
 /* ===== СТРОКА "НАДО" (третья) ===== */
 .aligned-text_right {
   /* Позиционирование */
-   position: absolute;
-  right: 0px;           
+  position: absolute;
+  right: 0px;
   top: 435px;
   transform: translateX(50px); /* Отступ от верха */
-  
+
   /* Распределение букв */
   display: flex;
   justify-content: space-between;
-  width: 387px;              /* Только ширина изменена */
-  
+  width: 387px; /* Только ширина изменена */
+
   /* Остальные стили */
   text-align: center;
   margin: 0;
@@ -287,7 +280,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 107px;              
+  gap: 107px;
   margin: 0;
   padding: 0;
   background: transparent;
@@ -306,10 +299,10 @@
 
 .bet-button {
   background: transparent;
-  border: 1px solid #FFF;
-  color: #FFF;
+  border: 1px solid #fff;
+  color: #fff;
   padding: 12px 32px;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 22px;
   text-transform: uppercase;
   cursor: pointer;
@@ -317,7 +310,7 @@
 }
 
 .bet-button:hover {
-  background: #FFF;
+  background: #fff;
   color: #000;
 }
 
@@ -338,8 +331,8 @@
 .lots__title {
   width: 121px;
   height: 47px;
-  margin: 0 0 0 40px;        
-  font-family: 'Raleway', sans-serif;
+  margin: 0 0 0 40px;
+  font-family: "Raleway", sans-serif;
   font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
@@ -409,7 +402,7 @@
 /* Заголовок карточки — общие стили */
 .lot__title {
   width: 254px;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 22px;
   font-weight: 700;
   line-height: 1.2;
@@ -424,7 +417,7 @@
 /* Текст карточки — общие стили */
 .lot__description {
   width: 254px;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 18px;
   line-height: 1.5;
   margin: 0;
@@ -459,13 +452,13 @@
 
 /* Фоновые изображения */
 .lot_type_film {
-  background-image: url('../images/card-lot-01.jpg');
+  background-image: url("../images/card-lot-01.jpg");
 }
 .lot_type_book {
-  background-image: url('../images/card-lot-02.jpg');
+  background-image: url("../images/card-lot-02.jpg");
 }
 .lot_type_painting {
-  background-image: url('../images/card-lot-03.jpg');
+  background-image: url("../images/card-lot-03.jpg");
 }
 
 /* Ссылка "посмотреть больше" */
@@ -474,7 +467,7 @@
   width: 192px;
   height: 25px;
   margin: 30px 0 0 35px;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 18px;
   text-decoration: none;
   color: #000;
@@ -490,8 +483,8 @@
   position: absolute;
   top: 2073px;
   left: 50%;
-  transform: translateX(-50%);                     /* отступ слева 24px */
-  width: 1100px;                  /* фиксированная ширина */
+  transform: translateX(-50%); /* отступ слева 24px */
+  width: 1100px; /* фиксированная ширина */
   min-height: 595px;
   display: grid;
   grid-template-columns: 383px 717px;
@@ -505,48 +498,47 @@
 .about__column--left {
   display: flex;
   flex-direction: column;
-  align-items: center;          /* центрируем логотип по горизонтали */
-  justify-content: flex-start;  /* сверху, без вертикального центрирования */
-  min-height: 595px;               /* можно и больше, но не меньше */
+  align-items: center; /* центрируем логотип по горизонтали */
+  justify-content: flex-start; /* сверху, без вертикального центрирования */
+  min-height: 595px; /* можно и больше, но не меньше */
 }
 
 .about__logo {
   margin-top: 35px;
-  margin-left: 47px;              /* отступ сверху 35px */
+  margin-left: 47px; /* отступ сверху 35px */
   width: 240px;
   height: 240px;
   background-color: #000;
   border-radius: 50%;
-  
+
   /* Центрируем картинку внутри круга */
   display: flex;
-  justify-content: center;       /* по горизонтали */
-  align-items: center;           /* по вертикали */
-  
+  justify-content: center; /* по горизонтали */
+  align-items: center; /* по вертикали */
+
   box-sizing: border-box;
 }
 
 /* Здесь будет изображение */
 .about__logo-image {
-  width: 142px;  
-  height: 113px; 
+  width: 142px;
+  height: 113px;
   display: block;
 }
-
 
 /* Правая колонка */
 .about__column--right {
   width: 717px;
-  min-height: 449px;                    
+  min-height: 449px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;           
+  justify-content: flex-start;
   box-sizing: border-box;
 }
 
 .about__title {
-  margin: 136px 0 100px 0;                     /* убрать нижний отступ */
-  font-family: 'Raleway', sans-serif;
+  margin: 136px 0 100px 0; /* убрать нижний отступ */
+  font-family: "Raleway", sans-serif;
   font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
@@ -555,9 +547,9 @@
 .about__text {
   display: flex;
   flex-direction: column;
-  gap: 24px;                              /* отступ между абзацами */
+  gap: 24px; /* отступ между абзацами */
   width: 100%;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 19px;
   line-height: 1.3;
   margin: 0;
@@ -567,7 +559,7 @@
   width: 688px;
   height: 120px;
   margin-right: 0;
-  overflow: hidden;  
+  overflow: hidden;
   box-sizing: border-box;
 }
 
@@ -575,8 +567,8 @@
   width: 693px;
   height: 168px;
   margin: 0;
-  overflow: hidden; 
-  box-sizing: border-box;         
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* ===== ПОДВАЛ ===== */
@@ -584,13 +576,13 @@
   position: absolute;
   top: 2848px;
   left: 50%;
-  transform: translateX(-50%);  
+  transform: translateX(-50%);
   width: 1100px;
   height: 180px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  background-color: #ffffff;               /* белый фон */
-  color: #000000;                           /* чёрный текст */
+  background-color: #ffffff; /* белый фон */
+  color: #000000; /* чёрный текст */
   padding: 0;
   box-sizing: border-box;
 }
@@ -601,7 +593,7 @@
   height: 98px;
   margin-left: 50px;
   font-style: normal;
-  color: #000000;                           /* чёрный текст */
+  color: #000000; /* чёрный текст */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -614,7 +606,7 @@
   text-align: left;
   margin: 0;
   white-space: nowrap;
-  color: #000000;                           /* чёрный текст */
+  color: #000000; /* чёрный текст */
   font-size: 18px;
   line-height: 1.3;
 }
@@ -643,10 +635,10 @@
 }
 
 .footer__nav a {
-  color: #000000;                           /* чёрный текст */
+  color: #000000; /* чёрный текст */
   text-decoration: none;
   font-size: 18px;
-   line-height: 1.1;
+  line-height: 1.1;
 }
 
 /* Подчёркивание для "посмотреть лоты" и "об аукционе" */
@@ -664,7 +656,7 @@
 .footer__social {
   list-style: none;
   padding: 0;
-  margin: 0 50px 0 0; 
+  margin: 0 50px 0 0;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
@@ -697,5 +689,4 @@
   width: 48px;
   height: 48px;
   object-fit: contain;
-          
 }
