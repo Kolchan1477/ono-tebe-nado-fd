@@ -1,0 +1,1 @@
+git@github.com:Kolchan1477/ono-tebe-nado-fd.git
