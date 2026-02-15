@@ -488,12 +488,12 @@
 /* ===== СЕКЦИЯ "ОБ АУКЦИОНЕ" ===== */
 .about {
   position: absolute;
-  top: 2206px;
+  top: 2073px;
   left: 24px;                     /* отступ слева 24px */
-  width: 1203px;                  /* фиксированная ширина */
+  width: 1100px;                  /* фиксированная ширина */
   min-height: 595px;
   display: grid;
-  grid-template-columns: 430px 693px;
+  grid-template-columns: 383px 717px;
   gap: 0;
   margin: 0;
   padding: 0;
@@ -527,7 +527,7 @@
 
 /* Здесь будет изображение */
 .about__logo-image {
-   width: 142px;  
+  width: 142px;  
   height: 113px; 
   display: block;
 }
