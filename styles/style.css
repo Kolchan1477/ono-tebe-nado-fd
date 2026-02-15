@@ -489,7 +489,8 @@
 .about {
   position: absolute;
   top: 2073px;
-  left: 24px;                     /* отступ слева 24px */
+  left: 50%;
+  transform: translateX(-50%);                     /* отступ слева 24px */
   width: 1100px;                  /* фиксированная ширина */
   min-height: 595px;
   display: grid;
@@ -535,7 +536,7 @@
 
 /* Правая колонка */
 .about__column--right {
-  width: 693px;
+  width: 717px;
   min-height: 449px;                    
   display: flex;
   flex-direction: column;
