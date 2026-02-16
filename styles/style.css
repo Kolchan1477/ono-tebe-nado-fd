@@ -152,6 +152,7 @@
   position: relative;
   min-height: 757px;
   justify-content: space-between;
+  margin-bottom: 178px;
 
   /* Фон */
   background-image: url("../images/cover.jpg");
@@ -266,7 +267,8 @@
 .lots {
   width: 1052px;
   min-height: 723px;
-  margin: 100px auto 0; /* отступ сверху 1230px, центрирование по горизонтали */
+  margin: 50px auto 0;
+  margin-bottom: 120px; 
   padding: 0;
   box-sizing: border-box;
 }
@@ -486,7 +488,8 @@
 .footer {
   width: 1100px;
 
-  margin: 100px auto 0; /* отступ сверху подбери, центрирование */
+  margin: 170px auto 0;
+   /* отступ сверху подбери, центрирование */
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   background-color: #ffffff;
