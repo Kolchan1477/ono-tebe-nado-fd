@@ -1,22 +1,4 @@
 /* место для вашего кода */
-/* Подключение шрифтов Raleway */
-@font-face {
-  font-family: "Raleway";
-  src:
-    url("../fonts/Raleway-Regular.woff2") format("woff2"),
-    url("../fonts/Raleway-Regular.woff") format("woff");
-  font-weight: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Raleway";
-  src:
-    url("../fonts/Raleway-Bold.woff2") format("woff2"),
-    url("../fonts/Raleway-Bold.woff") format("woff");
-  font-weight: bold;
-  font-display: swap;
-}
 
 /* ===== HEADER НА CSS GRID ===== */
 .header {
@@ -28,9 +10,9 @@
   /* 2. Выравнивание и размеры */
   align-items: start; /* Выравниваем элементы по верхнему краю */
   width: 1100px;
-  margin: 0 auto;
+  margin: 0 auto 96px auto;
   padding-top: 92px; /* Отступ сверху для логотипа */
-  min-height: 293px;
+
   position: relative;
 }
 
@@ -39,29 +21,16 @@
 /* 1. Для "главная" - 67×21 */
 .menu-item_main {
   width: 67px;
-  height: 21px;
 }
 
 /* 2. Для "посмотреть лоты" - 149×21 */
 .menu-item_lots {
   width: 149px;
-  height: 21px;
-  text-decoration: underline;
 }
 
 /* 3. Для "об аукционе" - 108×21 */
 .menu-item_about {
   width: 108px;
-  height: 21px;
-  text-decoration: underline;
-}
-
-/* 4. Чтобы текст был точно по центру своих контейнеров */
-.header__menu-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 21px; /* Общая высота для всех пунктов */
 }
 
 /* 5. Ссылки занимают всю площадь своих контейнеров */
@@ -78,42 +47,49 @@
   transition: opacity 0.3s;
 }
 
-/* 6. Настройка расстояний между элементами меню */
 .header__menu-list {
   display: flex;
   align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
-  height: 100%;
-  flex-wrap: nowrap;
-  overflow: visible;
-  /* Добавляем отступы между элементами */
-  gap: 0; /* Отключаем стандартный gap */
+  gap: 0;
 }
 
-/* 7. Уточняем отступы для колец */
-.header__menu-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: radial-gradient(
-    circle at center,
-    transparent 2px,
-    /* Белая серединка (2px радиус) */ #000 2.5px,
-    /* Чёрное кольцо (0.5px толщина) */ #000 3px,
-    /* Внешняя граница */ transparent 3.5px /* Прозрачный фон */
-  );
-  border-radius: 50%;
-  margin: 0 10px;
+.header__menu-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 0;
 }
+
+/* Точки между пунктами (после каждого, кроме последнего) */
+.header__menu-dot {
+  /* Убираем маркер списка, если он есть */
+  list-style: none;
+  /* Сам символ — это просто текст */
+  font-size: 12px; /* Было 18px, стало 12px — кружок меньше */
+  line-height: 1;
+  color: #000;
+  /* Отступы слева и справа, чтобы кружок не прилипал к словам */
+  margin: 0 12px; /* Отступы тоже можно чуть уменьшить */
+  /* Выравнивание по вертикали (на случай, если съедет) */
+  display: flex;
+  align-items: center;
+}
+.header__link_active {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ===== ПОЗИЦИОНИРОВАНИЕ ВСЕГО БЛОКА МЕНЮ ===== */
 .header__nav {
-  position: absolute; /* Вырываем из общего потока */
-  top: 133px;
-  left: 50px;
-  width: 396px; /* Минимальная ширина для всех элементов */
-  white-space: nowrap; /* Жёсткий запрет переноса текста */
+  /* Убираем position: absolute, top, left, width, white-space */
+  grid-column: 1; /* помещаем в первую колонку */
+  justify-self: start; /* прижимаем к левому краю */
+  margin-left: 50px; /* отступ слева 50px */
+  margin-top: 41px;
+  white-space: nowrap; /* Жёсткий запрет переноса текста */ /* 133px - 92px = отступ от верха */
 }
 /* ===== КОЛОНКА 2: ЛОГОТИП ПО ЦЕНТРУ ===== */
 .header__logo {
@@ -133,34 +109,30 @@
 
 /* ===== БЛОК КОНТАКТОВ СПРАВА ===== */
 .header__contacts {
-  /* Остаёмся в третьей колонке Grid для логической структуры */
+  /* Остаёмся в третьей колонке Grid */
   grid-column: 3;
-  /* Абсолютное позиционирование для точного размещения */
-  position: absolute;
-  top: 95px; /* Точное значение из макета */
-  right: 50px; /* Вместо margin-right */
+  justify-self: end; /* прижимаем к правому краю колонки */
 
-  /* Точные размеры из макета */
+  margin-top: 3px; /* вместо top */
+  margin-right: 50px; /* отступ справа */
+
   width: 240px;
   height: 98px;
 
-  /* Выравнивание текста внутри блока */
   text-align: left;
   font-style: normal;
 
-  /* Убираем все margin, они больше не нужны */
-  margin: 0;
-
-  /* Для точного позиционирования элементов внутри */
   display: flex;
   flex-direction: column;
+
+  box-sizing: border-box;
 }
 
 /* Стили для отдельных элементов контактов */
-.header__phone,
-.header__email {
+.header__contact-link {
   display: block;
-  text-decoration: none;
+  text-decoration: underline; /* добавить подчёркивание */
+  text-underline-offset: 3px;
   color: #000;
   font-size: 18px;
   line-height: 1.3;
@@ -175,9 +147,11 @@
 
 /* ===== COVER ===== */
 .cover {
+  display: flex;
+  flex-direction: column;
   position: relative;
   min-height: 757px;
-  padding: 0; /* Убираем все padding-и, будем позиционировать всё абсолютно */
+  justify-content: space-between;
 
   /* Фон */
   background-image: url("../images/cover.jpg");
@@ -200,90 +174,64 @@
 
 /* ===== ЗАГОЛОВОК ===== */
 .cover__title {
-  position: relative;
-  height: 100%; /* Чтобы дочерние элементы могли позиционироваться относительно всей высоты */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 165px 0 0 0; /* общий отступ сверху */
   font-size: 100px;
   font-weight: 800;
   line-height: 1.1;
   text-transform: uppercase;
-  margin: 0; /* Убираем margin, т.к. позиционируем абсолютно */
-  max-width: 1000px;
 }
 
 /* Общие стили строк */
 .aligned-text {
-  position: absolute; /* Все строки позиционируются абсолютно */
-  white-space: nowrap;
   display: block;
+  white-space: nowrap;
 }
 
 /* ===== СТРОКА "ОНО" (первая) ===== */
 .aligned-text_left {
-  position: absolute; /* обязательно */
-  left: 50px;
-  top: 165px;
-
-  display: flex; /* чтобы управлять буквами */
-  justify-content: space-between;
-  width: 286px; /* ширина из макета */
-
   text-align: left;
-  margin: 0;
-  padding: 0;
+  margin-left: 50px;
+  width: 286px;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* ===== СТРОКА "ТЕБЕ" (вторая) ===== */
 .aligned-text_center {
-  /* ВАЖНО: позиционирование */
-  position: absolute; /* Без этого элемент исчезает */
-  left: 54%; /* Центрирование по горизонтали */
-  transform: translateX(-50%);
-  top: 300px; /* Отступ от верха */
-
-  /* Новые свойства для распределения букв */
+  text-align: center;
+  width: 339px;
+  margin: 0 auto;
+  margin-top: 25px; /* центрирование */
   display: flex;
   justify-content: space-between;
-  width: 339px;
-
-  /* Остальные стили */
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  margin-left: 10px;
 }
 
 /* ===== СТРОКА "НАДО" (третья) ===== */
 .aligned-text_right {
-  /* Позиционирование */
-  position: absolute;
-  right: 0px;
-  top: 435px;
-  transform: translateX(50px); /* Отступ от верха */
-
-  /* Распределение букв */
+  text-align: right;
+  margin-right: 50px;
+  margin-top: 28px;
+  width: 387px;
   display: flex;
   justify-content: space-between;
-  width: 387px; /* Только ширина изменена */
-
-  /* Остальные стили */
-  text-align: center;
-  margin: 0;
-  padding: 0;
+  align-self: flex-end;
 }
 
 /* ===== ПОДЗАГОЛОВОК И КНОПКА ===== */
 .cover__description {
-  position: absolute;
-  bottom: 50px;
-  right: 50px;
-  z-index: 10;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 107px;
-  margin: 0;
+  margin-right: 50px;
+  margin-bottom: 50px;
   padding: 0;
   background: transparent;
+  align-self: flex-end;
 }
 
 .cover__description-text {
@@ -316,13 +264,9 @@
 
 /* ===== СЕКЦИЯ ЛОТЫ ===== */
 .lots {
-  position: absolute;
-  top: 1230px;
-  left: 50%;
-  transform: translateX(-50%);
   width: 1052px;
   min-height: 723px;
-  margin: 0;
+  margin: 50px auto 0; /* отступ сверху 1230px, центрирование по горизонтали */
   padding: 0;
   box-sizing: border-box;
 }
@@ -330,7 +274,7 @@
 /* Заголовок секции */
 .lots__title {
   width: 121px;
-  height: 47px;
+
   margin: 0 0 0 40px;
   font-family: "Raleway", sans-serif;
   font-size: 40px;
@@ -379,18 +323,11 @@
   box-sizing: border-box;
 }
 
-/* Оверлей */
-.lot .overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 1;
-}
-
 /* Контент поверх оверлея */
 .lot__content {
   position: relative;
   z-index: 2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -406,6 +343,7 @@
   font-size: 22px;
   font-weight: 700;
   line-height: 1.2;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -419,37 +357,12 @@
   width: 254px;
   font-family: "Raleway", sans-serif;
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+  word-spacing: 0.1em;
   margin: 0;
   align-self: flex-start;
 }
-/* Карточка 1 — Фильм */
-.lot_type_film .lot__title {
-  min-height: 82px;
-}
-
-.lot_type_film .lot__description {
-  min-height: 144px;
-}
-
-/* Карточка 2 — Книга */
-.lot_type_book .lot__title {
-  min-height: 110px;
-}
-
-.lot_type_book .lot__description {
-  min-height: 360px;
-}
-
-/* Карточка 3 — Картина */
-.lot_type_painting .lot__title {
-  min-height: 110px;
-}
-
-.lot_type_painting .lot__description {
-  min-height: 110px;
-}
-
 /* Фоновые изображения */
 .lot_type_film {
   background-image: url("../images/card-lot-01.jpg");
@@ -480,18 +393,14 @@
 }
 /* ===== СЕКЦИЯ "ОБ АУКЦИОНЕ" ===== */
 .about {
-  position: absolute;
-  top: 2073px;
-  left: 50%;
-  transform: translateX(-50%); /* отступ слева 24px */
-  width: 1100px; /* фиксированная ширина */
-  min-height: 595px;
+  margin-top: 100px; /* подбери */
+  width: 1100px;
+
   display: grid;
   grid-template-columns: 383px 717px;
-  gap: 0;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  /* без absolute */
 }
 
 /* Левая колонка */
@@ -505,7 +414,7 @@
 
 .about__logo {
   margin-top: 35px;
-  margin-left: 47px; /* отступ сверху 35px */
+  margin-left: 0; /* отступ сверху 35px */
   width: 240px;
   height: 240px;
   background-color: #000;
@@ -529,7 +438,7 @@
 /* Правая колонка */
 .about__column--right {
   width: 717px;
-  min-height: 449px;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -549,6 +458,8 @@
   flex-direction: column;
   gap: 24px; /* отступ между абзацами */
   width: 100%;
+  letter-spacing: 0.02em;
+  word-spacing: 0.05em;
   font-family: "Raleway", sans-serif;
   font-size: 19px;
   line-height: 1.3;
@@ -557,7 +468,7 @@
 
 .about__text p:first-child {
   width: 688px;
-  height: 120px;
+
   margin-right: 0;
   overflow: hidden;
   box-sizing: border-box;
@@ -565,7 +476,7 @@
 
 .about__text p:last-child {
   width: 693px;
-  height: 168px;
+
   margin: 0;
   overflow: hidden;
   box-sizing: border-box;
@@ -573,16 +484,13 @@
 
 /* ===== ПОДВАЛ ===== */
 .footer {
-  position: absolute;
-  top: 2848px;
-  left: 50%;
-  transform: translateX(-50%);
   width: 1100px;
-  height: 180px;
+
+  margin: 100px auto 0; /* отступ сверху подбери, центрирование */
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  background-color: #ffffff; /* белый фон */
-  color: #000000; /* чёрный текст */
+  background-color: #ffffff;
+  color: #000000;
   padding: 0;
   box-sizing: border-box;
 }
@@ -590,7 +498,7 @@
 /* ===== ЛЕВАЯ КОЛОНКА: АДРЕС ===== */
 .footer__address {
   width: 264.57px;
-  height: 98px;
+
   margin-left: 50px;
   font-style: normal;
   color: #000000; /* чёрный текст */
@@ -601,22 +509,24 @@
   box-sizing: border-box;
 }
 
-.footer__address a,
-.footer__address p {
+.footer__contact-link {
   text-align: left;
   margin: 0;
   white-space: nowrap;
-  color: #000000; /* чёрный текст */
+  color: #000000;
   font-size: 18px;
   line-height: 1.3;
-}
-
-.footer__address a {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.footer__address p {
+.footer__address-text {
+  text-align: left;
+  margin: 0;
+  white-space: nowrap;
+  color: #000000;
+  font-size: 18px;
+  line-height: 1.3;
   opacity: 0.8;
   text-decoration: none;
 }
@@ -634,21 +544,19 @@
   margin-bottom: 4px;
 }
 
-.footer__nav a {
-  color: #000000; /* чёрный текст */
+.footer__link {
+  color: #000000;
   text-decoration: none;
   font-size: 18px;
   line-height: 1.1;
 }
 
-/* Подчёркивание для "посмотреть лоты" и "об аукционе" */
-.footer__nav li:nth-child(2) a,
-.footer__nav li:nth-child(3) a {
+.footer__link_active {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.footer__nav a:hover {
+.footer__link:hover {
   text-decoration: underline;
 }
 
