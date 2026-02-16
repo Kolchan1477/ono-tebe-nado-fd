@@ -489,6 +489,7 @@
   width: 1100px;
 
   margin: 170px auto 0;
+  margin-bottom: 50px;
    /* отступ сверху подбери, центрирование */
   display: grid;
   grid-template-columns: 1fr auto 1fr;
