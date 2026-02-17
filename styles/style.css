@@ -34,52 +34,41 @@
 }
 
 /* 5. Ссылки занимают всю площадь своих контейнеров */
-.header__link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: #000;
-  font-size: 18px;
-  padding: 0; /* Убираем padding, т.к. размеры точные */
-  transition: opacity 0.3s;
-}
-
 .header__menu-list {
   display: flex;
   align-items: center;
-  list-style: none;
+  list-style: circle; /* маркеры — кружки */
   padding: 0;
   margin: 0;
-  gap: 0;
+  gap: 30px; /* расстояние между пунктами */
 }
 
 .header__menu-item {
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin-right: 0;
+  display: list-item; /* чтобы маркеры работали */
+  margin: 0;
+  padding: 0;
 }
 
-/* Точки между пунктами (после каждого, кроме последнего) */
-.header__menu-dot {
-  /* Убираем маркер списка, если он есть */
-  list-style: none;
-  /* Сам символ — это просто текст */
-  font-size: 12px; /* Было 18px, стало 12px — кружок меньше */
-  line-height: 1;
+.header__link {
+  display: inline-block;
+  text-decoration: none;
   color: #000;
-  /* Отступы слева и справа, чтобы кружок не прилипал к словам */
-  margin: 0 12px; /* Отступы тоже можно чуть уменьшить */
-  /* Выравнивание по вертикали (на случай, если съедет) */
-  display: flex;
-  align-items: center;
+  font-size: 18px;
+  white-space: nowrap;
+  transition: opacity 0.3s;
+  padding: 0;
 }
+
 .header__link_active {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.header__link:hover {
+  opacity: 0.7;
+}
+.header__menu-item:first-child {
+  list-style: none; /* убирает маркер только у первого */
 }
 
 /* ===== ПОЗИЦИОНИРОВАНИЕ ВСЕГО БЛОКА МЕНЮ ===== */
@@ -108,43 +97,34 @@
 }
 
 /* ===== БЛОК КОНТАКТОВ СПРАВА ===== */
-.header__contacts {
-  /* Остаёмся в третьей колонке Grid */
-  grid-column: 3;
-  justify-self: end; /* прижимаем к правому краю колонки */
-
-  margin-top: 3px; /* вместо top */
-  margin-right: 50px; /* отступ справа */
-
-  width: 240px;
-  height: 98px;
-
-  text-align: left;
-  font-style: normal;
-
-  display: flex;
-  flex-direction: column;
-
-  box-sizing: border-box;
-}
-
-/* Стили для отдельных элементов контактов */
-.header__contact-link {
+.contact-link {
   display: block;
-  text-decoration: underline; /* добавить подчёркивание */
+  text-decoration: underline;
   text-underline-offset: 3px;
   color: #000;
   font-size: 18px;
   line-height: 1.3;
 }
 
-.header__address {
+.contact-text {
   font-size: 18px;
   line-height: 1.3;
   opacity: 0.8;
-  margin: 0; /* Убираем стандартные отступы */
+  margin: 0;
 }
 
+/* Разные контейнеры — остаются */
+.header__contacts {
+  grid-column: 3;
+  justify-self: end;
+  margin-top: 3px;
+  margin-right: 50px;
+  width: 240px;
+  height: 98px;
+  display: flex;
+  flex-direction: column;
+  font-style: normal;
+}
 /* ===== COVER ===== */
 .cover {
   display: flex;
@@ -266,7 +246,7 @@
 /* ===== СЕКЦИЯ ЛОТЫ ===== */
 .lots {
   width: 1052px;
-  min-height: 723px;
+
   margin: 50px auto 0;
   margin-bottom: 120px;
   padding: 0;
@@ -380,7 +360,7 @@
 .lots__view-all {
   display: inline-block;
   width: 192px;
-  height: 25px;
+
   margin: 30px 0 0 35px;
   font-family: "Raleway", sans-serif;
   font-size: 18px;
@@ -502,37 +482,10 @@
 /* ===== ЛЕВАЯ КОЛОНКА: АДРЕС ===== */
 .footer__address {
   width: 264.57px;
-
   margin-left: 50px;
-  font-style: normal;
-  color: #000000; /* чёрный текст */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  line-height: 1.2;
-  box-sizing: border-box;
-}
-
-.footer__contact-link {
-  text-align: left;
-  margin: 0;
-  white-space: nowrap;
-  color: #000000;
-  font-size: 18px;
-  line-height: 1.3;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.footer__address-text {
-  text-align: left;
-  margin: 0;
-  white-space: nowrap;
-  color: #000000;
-  font-size: 18px;
-  line-height: 1.3;
-  opacity: 0.8;
-  text-decoration: none;
+  font-style: normal;
 }
 
 /* ===== ЦЕНТРАЛЬНАЯ КОЛОНКА: МЕНЮ ===== */
