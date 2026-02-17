@@ -469,7 +469,7 @@
   width: 1100px;
 
   margin: 120px auto 0;
-  margin-bottom: 120px;
+  margin-bottom: 125px;
   /* отступ сверху подбери, центрирование */
   display: grid;
   grid-template-columns: 1fr auto 1fr;
