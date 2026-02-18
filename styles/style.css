@@ -96,7 +96,13 @@
   display: block;
 }
 
-/* ===== БЛОК КОНТАКТОВ СПРАВА ===== */
+/* ===== БАЗОВЫЙ КОНТАКТНЫЙ БЛОК ===== */
+.contact-block {
+  display: flex;
+  flex-direction: column;
+  font-style: normal;
+}
+
 .contact-link {
   display: block;
   text-decoration: underline;
@@ -113,17 +119,14 @@
   margin: 0;
 }
 
-/* Разные контейнеры — остаются */
-.header__contacts {
+/* ===== МОДИФИКАТОР ДЛЯ ШАПКИ ===== */
+.contact-block--header {
   grid-column: 3;
   justify-self: end;
   margin-top: 3px;
   margin-right: 50px;
   width: 240px;
   height: 98px;
-  display: flex;
-  flex-direction: column;
-  font-style: normal;
 }
 /* ===== COVER ===== */
 .cover {
@@ -468,9 +471,9 @@
 .footer {
   width: 1100px;
 
-  margin: 120px auto 0;
-  margin-bottom: 125px;
-  /* отступ сверху подбери, центрирование */
+  margin: 170px auto 0;
+  margin-bottom: 75px;
+
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   background-color: #ffffff;
@@ -478,14 +481,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-/* ===== ЛЕВАЯ КОЛОНКА: АДРЕС ===== */
-.footer__address {
+/* ===== МОДИФИКАТОР ДЛЯ ПОДВАЛА ===== */
+.contact-block--footer {
   width: 264.57px;
   margin-left: 50px;
-  display: flex;
-  flex-direction: column;
-  font-style: normal;
+  line-height: 1.2; /* уникальный стиль футера */
 }
 
 /* ===== ЦЕНТРАЛЬНАЯ КОЛОНКА: МЕНЮ ===== */
